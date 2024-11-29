@@ -12,7 +12,7 @@ if (Delta > 0) {
 } else if (Delta == 0) {
     console.log('A funçao possui 2 raizes iguais')
     console.log('X = '+ parseFloat(x1.toFixed(2)))
-} else /*caso delta , 0 */{
+} else /*caso delta < 0 */{
     console.log('A funçao não possui raizes no campo dos números reais.')
 }
 
