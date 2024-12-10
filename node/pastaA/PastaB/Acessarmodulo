@@ -1,0 +1,11 @@
+const moduloA = require('../../moduloA')
+console.log(moduloA.ola)
+
+const saudaçao =require('saudaçao')
+console.log(saudaçao.ola)
+
+const http = require('http')
+http.createServer((req, res) => {
+    res.write('bom dia!')
+    res.end()
+}).listen(8080)
