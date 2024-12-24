@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Fetch API #02</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form input,
+        form select,
+        form button {
+            margin: 10px;
+            font-size: 1.6em;
+        }
+    </style>
+</head>
+
+<body class="conteudo exercicio">
+    <h1>Formulário Via Fetch</h1>
+    <form name="usuarioForm" action="formulario" method="post">
+        <input type="text" name="nome" placeholder="Nome..." />
+        <input type="text" name="sobrenome" placeholder="Sobrenome..." />
+        <button type="submit">Salvar</button>
+    </form>
+    <div id="resultado"></div>
+
+    <script>
+        document.usuarioForm.onsubmit = async e => {
+            e.preventDefault(); // Impede o envio padrão do formulário
+
+            const form = e.target; // Obtem o formulário
+            const data = new FormData(form); // Cria um FormData com os dados do formulário
+            data.append('ajax', true); // Adiciona um campo extra ao FormData
+
+            const options = {
+                method: form.method, // Usa o método do formulário
+                body: data, // Envia o FormData diretamente
+            };
+
+            // Faz a requisição com fetch
+            fetch(form.action, options)
+                .then(resp => resp.json()) // Converte a resposta em JSON
+                .then(json => {
+                    // Exibe o resultado no elemento #resultado
+                    const resultado = document.getElementById('resultado');
+                    resultado.innerHTML = JSON.stringify(json, null, 2); // Formata o JSON para exibição
+                })
+                .catch(err => {
+                    // Lida com erros na requisição
+                    console.error('Erro na requisição:', err);
+                });
+        };
+    </script>
+</body>
+
+</html>
