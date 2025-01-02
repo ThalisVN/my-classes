@@ -1,0 +1,26 @@
+{
+  "name": "captulo-webpack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack",
+    "build": "cross-env NODE_ENV= production webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "optmize-css-assets-webpack-plugin": "4.0.1",
+    "cross-env": "7.0.3",
+    "css-loader": "6.7.3",
+    "mini-css-extract-plugin": "2.9.2",
+    "node-sass": "9.0.0",
+    "sass-loader": "13.3.2",
+    "style-loader": "3.3.3",
+    "uglifyjs-webpack-plugin": "2.2.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1",
+    "css-minimizer-webpack-plugin": "^5.0.3"
+  },
+  "description": ""
+}
