@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Manipulando Atributos</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+    <script src='js/jquery.js'></script>
+    <style>
+        [wm-relogio] {
+            text-align: center;
+        }
+
+        [wm-relogio] button {
+            font-size: 1.6em;
+            padding: 0px 25px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body class='conteudo exercicio'>
+    <h1>Manipulando Atributos</h1>
+    <div wm-relogio='1000'></div>
+    <script>
+        function Relogio(elemento) {
+            const horaCerta = $('<p>').html('00:00:00');
+            const BotaoMenos = $('<button>').html('-');
+            const BotaoMais = $('<button>').html('+');
+
+            const $elemento = $(elemento);
+            $elemento.append(horaCerta, BotaoMenos, BotaoMais);
+
+            const getIntervaloAtual = () => parseInt($elemento.attr('wm-relogio'));
+            let temporizador = null;
+
+            const iniciar = () => {
+                if (temporizador) clearInterval(temporizador);
+                temporizador = setInterval(() => {
+                    horaCerta.html(new Date().toLocaleTimeString('pt-BR'));
+                }, getIntervaloAtual());
+            };
+
+            const alterarIntervalo = (delta) => {
+                const novo = Math.max(getIntervaloAtual() + delta, 1000); // Intervalo mínimo de 1000ms
+                $elemento.attr('wm-relogio', novo);
+                iniciar(); // Reinicia o temporizador com o novo intervalo
+            };
+
+            // Configura os eventos dos botões
+            BotaoMenos.click(() => alterarIntervalo(1000)); // Aumenta o intervalo
+            BotaoMais.click(() => alterarIntervalo(-1000)); // Diminui o intervalo
+
+            // Inicia o relógio
+            iniciar();
+        }
+
+        // Aplica a função Relogio para cada elemento com o atributo wm-relogio
+        $('[wm-relogio]').each((i, e) => new Relogio(e));
+    </script>
+</body>
+
+</html>
