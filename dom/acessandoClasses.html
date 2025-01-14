@@ -12,7 +12,8 @@
         Classes
     </div>
     <script>
-        const Classes = document.querySelector('div').classList
+        const div = document.querySelector('div')
+        const classes = div.classList
         classes.add('destaque')
         classes.remove('destaque')
         classes.toggle('destaque')
@@ -21,10 +22,15 @@
         classes.toggle('destaque')
         console.log(classes.length)
 
-        for (let c of classes) {
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        for(let c of classes) {
             console.log(c)
-            
         }
+
+        classes.forEach(c => console.log(c))
     </script>
 </body>
 

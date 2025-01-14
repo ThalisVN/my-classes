@@ -1,6 +1,4 @@
-import Pessoa from "./pessoa";
-//const ModuloB = require('./moduloB')
-import './assets/css/estilo.css'
+import Pessoa from './pessoa'
 import './assets'
 
 const atendente = new Pessoa

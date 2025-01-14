@@ -1,3 +1,5 @@
-this.ola = 'Fala pessoal'
-exports.BemVindo = 'Bem Vindo ao Node!'
-module.exports.atelogo = 'Até proximo exemplo'
+console.log(this)
+
+this.ola = 'Fala Pessoal'
+exports.bemVindo = 'Bem vindo ao node!'
+module.exports.ateLogo = 'Até próximo exemplo'

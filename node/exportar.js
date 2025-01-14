@@ -1,3 +1,4 @@
+console.log(module.exports)
 console.log(module.exports === this)
 console.log(module.exports === exports)
 
@@ -9,8 +10,9 @@ exports = null
 console.log(module.exports)
 
 exports = {
-    nome: 'teste'
+    nome: 'Teste'
 }
 
 console.log(module.exports)
-module.exports ={publico: true}
+
+module.exports = { publico: true }

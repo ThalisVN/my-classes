@@ -13,37 +13,26 @@
     <div id='conteudo'></div>
 
     <script>
-        $(document).ready(function () {
-            const pessoas = [
+        // $(document).ready(function() {
+        $(function() {
+            const alunos = [
                 { nome: 'Ana', nota: 9.1 },
                 { nome: 'Bianca', nota: 8.4 },
                 { nome: 'Carlos', nota: 7.6 },
                 { nome: 'Julia', nota: 9.7 }
-            ];
+            ]
 
-            // Mapeia os dados para criar as linhas da tabela
-            const linhas = pessoas.map(p => {
-                const tdNome = $('<td>').html(p.nome);
-                const tdNota = $('<td>').html(p.nota);
-                const tr = $('<tr>').append(tdNome).append(tdNota); // Adiciona as células à linha
-                return tr; // Retorna a linha completa
-            });
+            const linhas = alunos.map(aluno => {
+                const tdNome = $('<td>').html(aluno.nome)
+                const tdNota = $('<td>').html(aluno.nota)
+                // return $('<tr>').append(tdNome).append(tdNota)
+                // return $('<tr>').append([tdNome, tdNota])
+                return $('<tr>').append(tdNome, tdNota)
+            })
 
-            // Cria a tabela e adiciona as linhas
-            const tabela = $('<table>')
-                .css("border", "solid 5px black")
-                .css("border-collapse", "collapse")
-                .append(
-                    $('<thead>').append(
-                        $('<tr>')
-                            .append($('<th>').html('Nome'))
-                            .append($('<th>').html('Nota'))
-                    )
-                )
-                .append($('<tbody>').append(linhas));
-                $('#conteudo').append(tabela);
-        });
+            const tabela = $('<table>').append(linhas)
+                .css('border', 'solid 5px')
+            $('#conteudo').append(tabela)
+        })
     </script>
 </body>
-
-</html>

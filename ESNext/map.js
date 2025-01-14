@@ -5,21 +5,22 @@ tecnologias.set('angular', { framework: true })
 console.log(tecnologias.react)
 console.log(tecnologias.get('react').framework)
 
-const chavesvariadas = new Map([
-    [function () {}, "Funçao"],
-    [{}, 'objeto'],
-    [123, 'número'],
+const chavesVariadas = new Map([
+    [function () { }, 'Função'],
+    [{}, 'Objeto'],
+    [123, 'Número'],
 ])
 
-chavesvariadas.forEach((vl, ch) => {
+chavesVariadas.forEach((vl, ch) => {
     console.log(ch, vl)
 })
 
-console.log(chavesvariadas.has(123))
-chavesvariadas.delete(123)
-console.log(chavesvariadas.has(123))
-console.log(chavesvariadas.size)
+console.log(chavesVariadas.has(123))
+chavesVariadas.delete(123)
+console.log(chavesVariadas.has(123))
+console.log(chavesVariadas.size)
 
-chavesvariadas.set(123, 'a')
-chavesvariadas.set(123, 'b')
-console.log(chavesvariadas)
+chavesVariadas.set(123, 'a')
+chavesVariadas.set(123, 'b')
+chavesVariadas.set(456, 'b')
+console.log(chavesVariadas)

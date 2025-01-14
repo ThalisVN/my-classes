@@ -1,8 +1,7 @@
-//console.log(global)
-
-global.minhaApp = {
-    saudaçao() {
-        return 'estou em todos os lugares!'
+// console.log(global)
+global.MinhaApp = Object.freeze({
+    saudacao() {
+        return 'Estou em todos os lugares!'
     },
-    nome: "Sistema legal"
-}
+    nome: 'Sistema Legal'
+})
